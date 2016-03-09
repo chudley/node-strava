@@ -1,0 +1,20 @@
+{
+  "name": "node-strava",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.2",
+    "bunyan": "^1.7.1",
+    "restify": "^4.0.4",
+    "vasync": "^1.6.3"
+  }
+}
