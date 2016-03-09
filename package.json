@@ -1,7 +1,7 @@
 {
   "name": "node-strava",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "[WIP] A Node.js library for interfacing with the Strava API.",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
@@ -9,12 +9,9 @@
   "scripts": {
     "test": "make test"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Richard Bradley <aguycalledrichard@gmail.com>",
   "dependencies": {
     "async": "^1.5.2",
-    "bunyan": "^1.7.1",
-    "restify": "^4.0.4",
-    "vasync": "^1.6.3"
+    "restify": "^4.0.4"
   }
 }
