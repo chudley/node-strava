@@ -12,6 +12,7 @@
   "author": "Richard Bradley <aguycalledrichard@gmail.com>",
   "dependencies": {
     "async": "^1.5.2",
+    "bunyan": "^1.7.1",
     "restify": "^4.0.4"
   }
 }
