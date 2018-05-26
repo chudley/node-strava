@@ -1,48 +1,35 @@
-var assert = require('assert');
-var Strava = require('../.');
-var format = require('util').format;
+var mod_assertplus = require('assert-plus');
+var mod_fs = require('fs');
 
-var token = '';
+var config = JSON.parse(mod_fs.readFileSync('./etc/config.json'));
 
-describe('Activities', function () {
-    it('should list', function (done) {
-        this.timeout(10000);
-        var strava = new Strava({
-            token: token
-        });
-        strava.listActivities(function (err, activities) {
-            assert.equal(activities.length, 258);
-            done();
-        });
-    });
-    it('should 401', function (done) {
-        var strava = new Strava({
-            token: format('%s%s', token, 'xxx')
-        });
-        strava.listActivities(function (err, activities) {
-            assert.equal(err.name, 'UnauthorizedError');
-            done();
-        });
-    });
+var Strava = require('../lib/strava');
+
+var strava = new Strava({
+    token: config.strava.token
 });
 
-describe('Athlete', function () {
-    it('should get', function (done) {
-        var strava = new Strava({
-            token: token
-        });
-        strava.getAthlete(function (err, athlete) {
-            assert.equal(athlete.id, '370532');
-            done();
-        });
-    });
-    it('should 401', function (done) {
-        var strava = new Strava({
-            token: format('%s%s', token, 'xxx')
-        });
-        strava.getAthlete(function (err, athlete) {
-            assert.equal(err.name, 'UnauthorizedError');
-            done();
-        });
-    });
+describe('Strava', function () {
+	it('getAthlete', function (done) {
+		strava.getAthlete(function (err, athlete) {
+			mod_assertplus.equal(athlete.id, '370532');
+			done();
+		});
+	});
+	it('listAthleteActivities', function (done) {
+		this.timeout(10000);
+		strava.listAthleteActivities(function (err, activities) {
+			mod_assertplus.equal(activities.length, 360);
+			done();
+		});
+	});
+	it('Unauthorised', function (done) {
+		var s = new Strava({
+		    token: 'fail'
+		});
+		s.getAthlete(function (err, athlete) {
+			mod_assertplus.equal(err.name, 'UnauthorizedError');
+			done();
+		});
+	});
 });

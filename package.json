@@ -2,7 +2,7 @@
   "name": "node-strava",
   "version": "0.0.1",
   "description": "[WIP] A Node.js library for interfacing with the Strava API.",
-  "main": "lib/index.js",
+  "main": "lib/strava.js",
   "directories": {
     "test": "test"
   },
@@ -13,6 +13,13 @@
   "dependencies": {
     "async": "^1.5.2",
     "bunyan": "^1.7.1",
-    "restify": "^4.0.4"
+    "extsprintf": "^1.4.0",
+    "jsprim": "^2.0.0",
+    "restify": "^4.0.4",
+    "vasync": "^2.2.0",
+    "verror": "^1.10.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
   }
 }

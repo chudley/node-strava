@@ -4,3 +4,4 @@ npm-debug.log
 .env
 sandbox
 *.db
+etc/config.json

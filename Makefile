@@ -19,7 +19,7 @@ all:
 
 .PHONY: test
 test:
-	./node_modules/mocha/bin/mocha
+	./node_modules/.bin/mocha
 
 .PHONY: clean
 clean::
