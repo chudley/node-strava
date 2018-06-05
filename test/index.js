@@ -12,14 +12,21 @@ var strava = new Strava({
 describe('Strava', function () {
 	it('getAthlete', function (done) {
 		strava.getAthlete(function (err, athlete) {
-			mod_assertplus.equal(athlete.id, '370532');
+			mod_assertplus.equal(athlete.id, '5691478');
 			done();
 		});
 	});
 	it('listAthleteActivities', function (done) {
 		this.timeout(10000);
 		strava.listAthleteActivities(function (err, activities) {
-			mod_assertplus.equal(activities.length, 360);
+			mod_assertplus.equal(activities.length, 3);
+			done();
+		});
+	});
+	it('getActivity', function (done) {
+		strava.getActivity(1616481871, function (err, activity) {
+			mod_assertplus.equal(activity.name, 'Lunch Ride');
+			mod_assertplus.arrayOfObject(activity.segment_efforts);
 			done();
 		});
 	});
